@@ -1,0 +1,32 @@
+//  RPG2.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include <conio.h>
+#include "Mapa.cpp"
+#include "Poruszanie.cpp"
+int main()
+{
+	bool Koniec_gry = false;											//Jeœli prawda to pêtla gry siê koñczy
+	int x = 5;															//Po³o¿enie pocz¹tkowe postaci
+	int y = 5;
+	while (!Koniec_gry)													//g³ówna pêtla gry
+	{
+		
+																		//bool Mapa_zdefiniowana;
+																		//Mapa_zdefiniowana = false;
+																		//if (Mapa_zdefiniowana != true)
+																		//{
+		Mapa Krakow;
+		Krakow.Plansza(30,30,x,y);
+		Poruszanie Postac1;
+		Postac1.player_position(x, y);
+																		//Koniec_gry = true;
+																		//_getch(); //czeka a¿ naciœniemy klawisz, by zacz¹æ kolejny krok pêtli
+																		//}
+		
+	}
+	return 0;
+}
+
