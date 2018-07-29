@@ -3,25 +3,40 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <stdio.h>
 #include <conio.h>
 #include "Mapa.cpp"
-#include "Poruszanie.cpp"
+
 int main()
 {
 	bool Koniec_gry = false;											//Jeœli prawda to pêtla gry siê koñczy
 	int x = 5;															//Po³o¿enie pocz¹tkowe postaci
 	int y = 5;
 	while (!Koniec_gry)													//g³ówna pêtla gry
-	{
-		
+	{											
 																		//bool Mapa_zdefiniowana;
 																		//Mapa_zdefiniowana = false;
 																		//if (Mapa_zdefiniowana != true)
 																		//{
 		Mapa Krakow;
 		Krakow.Plansza(30,30,x,y);
-		Poruszanie Postac1;
-		Postac1.player_position(x, y);
+		unsigned char a;
+		a = _getch();
+		//for detect the function\arrow keys 
+		//we must call the getch() again
+		//testing if a is '0' or '0xE0'
+		if (a == 0 || a == 0xE0) a = _getch();
+
+		if (a == 27) //ESC for exit the 'while'
+			break;
+		else if (a == 72)
+			x--;
+		else if (a == 80)
+			x++;
+		else if (a == 75)
+			y--;
+		else if (a == 77)
+			y++;
 																		//Koniec_gry = true;
 																		//_getch(); //czeka a¿ naciœniemy klawisz, by zacz¹æ kolejny krok pêtli
 																		//}
@@ -29,4 +44,3 @@ int main()
 	}
 	return 0;
 }
-
